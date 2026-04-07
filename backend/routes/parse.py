@@ -8,7 +8,7 @@ from auth import get_current_user
 router = APIRouter()
 
 genai.configure(api_key=os.getenv("GEMINI_API_KEY", ""))
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-2.5-flash-lite")
 
 SYSTEM_PROMPT = """你是一個專門解析無線電通訊內容的助手，服務對象為軍事聯訓計畫組。
 請將收到的無線電原始文字解析為結構化資料，以 JSON 格式回應。
