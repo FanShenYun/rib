@@ -21,7 +21,7 @@ docker run -d --name rib-pg \
 ```bash
 cd backend
 cp .env.example .env
-# 編輯 .env，填入 ANTHROPIC_API_KEY 與 ACCESS_PASSWORD
+# 編輯 .env，填入 GEMINI_API_KEY 與 ACCESS_PASSWORD
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
@@ -40,7 +40,7 @@ npm run dev
 ## 部署至 Railway
 
 1. 建立 Railway 專案，加入 PostgreSQL 服務
-2. 設定環境變數：`ANTHROPIC_API_KEY`、`ACCESS_PASSWORD`、`JWT_SECRET`
+2. 設定環境變數：`GEMINI_API_KEY`、`ACCESS_PASSWORD`、`JWT_SECRET`
 3. `DATABASE_URL` 由 Railway 自動注入
 4. 建構指令：
    ```bash
