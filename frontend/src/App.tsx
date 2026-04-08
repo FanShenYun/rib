@@ -2,7 +2,6 @@ import { useEffect, useState, useCallback } from 'react'
 import {
   DndContext,
   DragEndEvent,
-  DragOverEvent,
   PointerSensor,
   useSensor,
   useSensors,
