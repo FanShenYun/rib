@@ -1,6 +1,6 @@
 import type { Card, ParseResult } from '../types'
 
-const BASE = '/api'
+const BASE = `${import.meta.env.VITE_API_BASE ?? ''}/api`
 
 function getToken(): string {
   return localStorage.getItem('token') ?? ''

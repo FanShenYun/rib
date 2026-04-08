@@ -10,8 +10,15 @@ export function useWebSocket(onMessage: (msg: WsMessage) => void) {
     const token = localStorage.getItem('token')
     if (!token || unmounted.current) return
 
-    const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws'
-    const url = `${protocol}://${window.location.host}/ws?token=${token}`
+    const apiBase = import.meta.env.VITE_API_BASE as string | undefined
+    let url: string
+    if (apiBase) {
+      const wsBase = apiBase.replace(/^http/, 'ws')
+      url = `${wsBase}/ws?token=${token}`
+    } else {
+      const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws'
+      url = `${protocol}://${window.location.host}/ws?token=${token}`
+    }
     const ws = new WebSocket(url)
     wsRef.current = ws
 
